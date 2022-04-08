@@ -6,7 +6,7 @@
 /*   By: ybestrio <ybestrio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/07 19:25:10 by yasinbestri       #+#    #+#             */
-/*   Updated: 2022/04/08 15:31:15 by ybestrio         ###   ########.fr       */
+/*   Updated: 2022/04/08 15:40:29 by ybestrio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ Fixed& Fixed::operator=(Fixed const& rhs)
 
 Fixed Fixed::operator+(Fixed const& rhs) const
 {
-	int tempA = this->getRawBits() << 8;
-	int tempB = rhs._value << 8;
+	int tempA = this->getRawBits() >> 8;
+	int tempB = rhs._value >> 8;
 	int result = tempA + tempB;
-	this->value = 
+	result = result << 8; 
 
-	return Fixed(this->_value);
+	return result;
 }
 
 Fixed Fixed::operator-(Fixed const& rhs) const
